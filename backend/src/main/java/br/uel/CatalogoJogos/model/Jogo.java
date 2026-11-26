@@ -61,3 +61,4 @@ String urlCapa, String descricao) {
     public void setUrlCapa(String urlCapa) { this.urlCapa = urlCapa; }
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
+}
