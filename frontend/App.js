@@ -1,20 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ListaJogosScreen from './src/screens/ListaJogosScreen';
+import FromJogoScreen from './src/screens/FormJogoScreen';
+import { colors } from './src/theme';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar style="light" />
+      <Stack.Navigator
+        initialRouteName="ListaJogos"
+        screenOptions={{
+          headerStyle: { backgroundColor: colors.surface },
+          headerTintColor: colors.text,
+          contentStyle: { backgroundColor: colors.background },
+        }}
+      >
+        <Stack.Screen 
+          name="ListaJogos"
+          component={ListaJogosScreen}
+          options={{ title: 'Lista de Jogos' }}
+        />
+        <Stack.Screen 
+          name="FormJogo"
+          component={FromJogoScreen}
+          options={{ title: 'Jogo' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
