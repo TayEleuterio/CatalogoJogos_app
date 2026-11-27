@@ -13,3 +13,4 @@ backend/.idea/
 # Arquivos do sistema
 .DS_Store
 Thumbs.db
+.vscode/
